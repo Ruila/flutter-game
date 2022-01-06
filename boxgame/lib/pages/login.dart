@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:boxgame/pages/page2.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
-
+  final account = TextEditingController();
+  final password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,6 +17,7 @@ class LoginPage extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
               child: TextFormField(
+                controller: account,
                 decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.person),
                   labelText: "Name *",
@@ -28,6 +29,7 @@ class LoginPage extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
               child: TextFormField(
+                controller: password,
                 decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.lock),
                   suffixIcon: Icon(Icons.remove_red_eye),
@@ -42,13 +44,16 @@ class LoginPage extends StatelessWidget {
             SizedBox(
               width: MediaQuery.of(context).size.width - 48.0,
               height: 48.0,
-              child: RaisedButton(
+              child: ElevatedButton(
                 child: const Text("Login"),
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const PageTest()));
+                  if (account.text == "nextdrive" &&
+                      password.text == "nextdrive") {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PageTest()));
+                  }
                 },
               ),
             ),
