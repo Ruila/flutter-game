@@ -49,10 +49,8 @@ class LoginPage extends StatelessWidget {
                 onPressed: () {
                   if (account.text == "nextdrive" &&
                       password.text == "nextdrive") {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const PageTest()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => PageTest()));
                   }
                 },
               ),

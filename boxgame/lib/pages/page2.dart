@@ -4,8 +4,13 @@ import 'package:flutter/material.dart';
 import 'calculator.dart';
 
 class PageTest extends StatelessWidget {
-  const PageTest({Key? key}) : super(key: key);
-  static const widgetList = ["calculator", "widget1", "widget2", "widget3"];
+  PageTest({Key? key}) : super(key: key);
+  final List<WidgetItem> widgetList = [
+    WidgetItem("calculator"),
+    WidgetItem("widget1"),
+    WidgetItem("widget2"),
+    WidgetItem("widget3")
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +27,7 @@ class PageTest extends StatelessWidget {
           var flag = false;
           return GestureDetector(
             onTapDown: (value) {
-              var whoami = widgetList[index];
+              var whoami = widgetList[index].name;
               ChosePage(context, whoami);
             },
             child: Container(
@@ -33,7 +38,7 @@ class PageTest extends StatelessWidget {
               ),
               margin: const EdgeInsets.all(10),
               child: Center(
-                child: Text(widgetList[index]),
+                child: Text(widgetList[index].name),
               ),
             ),
           );
