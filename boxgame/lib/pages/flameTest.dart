@@ -1,17 +1,17 @@
+import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
+import 'package:boxgame/game/start_game.dart';
 
-class FlameTest extends StatefulWidget {
+class FlameTest extends StatelessWidget {
   const FlameTest({Key? key}) : super(key: key);
 
   @override
-  ImplementFlameTest createState() => ImplementFlameTest();
-}
-
-class ImplementFlameTest extends State<FlameTest> {
-  var result = 0;
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(title: const Text("Calculator")),
-        body: Center(child: Text("sssss")));
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Stars',
+      theme: ThemeData.dark(),
+      home: Scaffold(body: GameWidget<Game>(game: StartGame())),
+    );
   }
 }
