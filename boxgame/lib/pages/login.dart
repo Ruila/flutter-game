@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:boxgame/pages/page2.dart';
+import 'package:boxgame/pages/toolBox.dart';
 
 class LoginPage extends StatelessWidget {
   final account = TextEditingController();
@@ -50,7 +50,7 @@ class LoginPage extends StatelessWidget {
                   if (account.text == "nextdrive" &&
                       password.text == "nextdrive") {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => PageTest()));
+                        MaterialPageRoute(builder: (context) => ToolBox()));
                   }
                 },
               ),

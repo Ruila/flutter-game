@@ -1,10 +1,11 @@
+import 'package:boxgame/pages/flameTest.dart';
 import 'package:boxgame/type/widgetItem.dart';
 import 'package:flutter/material.dart';
 
 import 'calculator.dart';
 
-class PageTest extends StatelessWidget {
-  PageTest({Key? key}) : super(key: key);
+class ToolBox extends StatelessWidget {
+  ToolBox({Key? key}) : super(key: key);
   final List<WidgetItem> widgetList = [
     WidgetItem("calculator"),
     WidgetItem("widget1"),
@@ -14,7 +15,8 @@ class PageTest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text("Page2")), body: _wigetBox(context));
+        appBar: AppBar(title: const Text("Tool Box")),
+        body: _wigetBox(context));
   }
 
   Widget _wigetBox(BuildContext context) {
@@ -49,6 +51,9 @@ class PageTest extends StatelessWidget {
     if (whoami == "calculator") {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => const Calculator()));
+    } else if (whoami == "widget1") {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => const FlameTest()));
     } else {
       print('You pressed me $whoami');
     }
