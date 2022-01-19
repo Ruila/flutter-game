@@ -9,6 +9,7 @@ import 'package:flame/game.dart';
 import 'background.dart';
 import 'ground.dart';
 import 'monster.dart';
+import 'star.dart';
 
 class StartGame extends FlameGame with HasDraggables, HasCollidables {
   final double screenWidth = MediaQueryData.fromWindow(window).size.width;
@@ -20,6 +21,7 @@ class StartGame extends FlameGame with HasDraggables, HasCollidables {
     'purple_monster.png',
     'background.jpeg',
     'ground.png',
+    'star.png'
   ];
 
   @override
@@ -27,29 +29,29 @@ class StartGame extends FlameGame with HasDraggables, HasCollidables {
     await images.loadAll(_assetsImages);
     final knobPaint = BasicPalette.blue.withAlpha(200).paint();
     final backgroundPaint = BasicPalette.blue.withAlpha(100).paint();
-    final image = await images.load('purple_monster.png');
-    // final sheet = SpriteSheet.fromColumnsAndRows(
-    //   image: image,
-    //   columns: 6,
-    //   rows: 1,
-    // );
-    // final joystick = JoystickComponent(
-    //   knob: SpriteComponent(
-    //     sprite: sheet.getSpriteById(1),
-    //     size: Vector2.all(100),
-    //   ),
-    //   background: SpriteComponent(
-    //     sprite: sheet.getSpriteById(0),
-    //     size: Vector2.all(150),
-    //   ),
-    //   margin: const EdgeInsets.only(left: 30, bottom: 40),
-    // );
+    final image = await images.load('ground.png');
+    final sheet = SpriteSheet.fromColumnsAndRows(
+      image: image,
+      columns: 2,
+      rows: 4,
+    );
+    final joystick = JoystickComponent(
+      knob: SpriteComponent(
+          sprite: sheet.getSpriteById(1),
+          size: Vector2.all(15),
+          paint: knobPaint),
+      background: SpriteComponent(
+          sprite: sheet.getSpriteById(0),
+          size: Vector2.all(50),
+          paint: backgroundPaint),
+      margin: const EdgeInsets.only(left: 50, bottom: 50),
+    );
 
     final background = Background(this);
     ground = Ground(this);
-    // add(joystick);
-    final monster = Monster(this);
-
-    addAll([background, ground, monster]);
+    add(joystick);
+    final monster = Monster(this, joystick);
+    final star = Star(this);
+    addAll([background, ground, monster, star]);
   }
 }
