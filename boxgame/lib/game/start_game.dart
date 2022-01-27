@@ -1,8 +1,6 @@
 import 'dart:ui';
 import 'package:flame/components.dart';
-import 'package:flame/geometry.dart';
 import 'package:flame/palette.dart';
-import 'package:flame/sprite.dart';
 import 'package:flutter/material.dart';
 import 'package:flame/game.dart';
 
@@ -11,7 +9,8 @@ import 'ground.dart';
 import 'monster.dart';
 import 'star.dart';
 
-class StartGame extends FlameGame with HasDraggables, HasCollidables {
+class StartGame extends FlameGame
+    with HasDraggables, HasCollidables, HasTappables {
   final double screenWidth = MediaQueryData.fromWindow(window).size.width;
   final double screenHeight = MediaQueryData.fromWindow(window).size.height;
 
@@ -21,7 +20,8 @@ class StartGame extends FlameGame with HasDraggables, HasCollidables {
     'purple_monster.png',
     'background.jpeg',
     'ground.png',
-    'star.png'
+    'star.png',
+    'gear.png'
   ];
 
   @override
@@ -29,22 +29,11 @@ class StartGame extends FlameGame with HasDraggables, HasCollidables {
     await images.loadAll(_assetsImages);
     final knobPaint = BasicPalette.blue.withAlpha(200).paint();
     final backgroundPaint = BasicPalette.blue.withAlpha(100).paint();
-    final image = await images.load('ground.png');
-    final sheet = SpriteSheet.fromColumnsAndRows(
-      image: image,
-      columns: 2,
-      rows: 4,
-    );
+
     final joystick = JoystickComponent(
-      knob: SpriteComponent(
-          sprite: sheet.getSpriteById(1),
-          size: Vector2.all(15),
-          paint: knobPaint),
-      background: SpriteComponent(
-          sprite: sheet.getSpriteById(0),
-          size: Vector2.all(50),
-          paint: backgroundPaint),
-      margin: const EdgeInsets.only(left: 50, bottom: 50),
+      knob: CircleComponent(radius: 15, paint: knobPaint),
+      background: CircleComponent(radius: 60, paint: backgroundPaint),
+      margin: const EdgeInsets.only(left: 30, bottom: 40),
     );
 
     final background = Background(this);

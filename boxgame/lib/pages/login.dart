@@ -47,8 +47,7 @@ class LoginPage extends StatelessWidget {
               child: ElevatedButton(
                 child: const Text("Login"),
                 onPressed: () {
-                  if (account.text == "nextdrive" &&
-                      password.text == "nextdrive") {
+                  if (account.text == "" && password.text == "") {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => ToolBox()));
                   }

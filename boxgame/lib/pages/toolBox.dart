@@ -8,7 +8,7 @@ class ToolBox extends StatelessWidget {
   ToolBox({Key? key}) : super(key: key);
   final List<WidgetItem> widgetList = [
     WidgetItem("calculator"),
-    WidgetItem("widget1"),
+    WidgetItem("elf game"),
     WidgetItem("widget2"),
     WidgetItem("widget3")
   ];
@@ -51,7 +51,7 @@ class ToolBox extends StatelessWidget {
     if (whoami == "calculator") {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => const Calculator()));
-    } else if (whoami == "widget1") {
+    } else if (whoami == "elf game") {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => const FlameTest()));
     } else {
