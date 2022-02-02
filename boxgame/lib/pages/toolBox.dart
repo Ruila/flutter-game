@@ -15,7 +15,45 @@ class ToolBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text("Tool Box")),
+        appBar: AppBar(
+          title: const Text("Tool Box"),
+        ),
+        drawer: Drawer(
+          child: ListView(
+            children: const <Widget>[
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
+                child: Text(
+                  'Drawer Header',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                  ),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.message),
+                title: Text('Messages'),
+              ),
+              ListTile(
+                leading: Icon(Icons.account_circle),
+                title: Text('Profile'),
+              ),
+              ListTile(
+                leading: Icon(Icons.settings),
+                title: Text('Settings'),
+              ),
+            ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () {},
+          label: const Text('Like'),
+          icon: const Icon(Icons.thumb_up),
+          backgroundColor: Colors.pinkAccent,
+        ),
         body: _wigetBox(context));
   }
 
