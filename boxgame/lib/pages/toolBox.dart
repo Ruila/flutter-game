@@ -1,4 +1,6 @@
+import 'package:boxgame/common/popup.dart';
 import 'package:boxgame/pages/flameTest.dart';
+import 'package:boxgame/pages/uiOne.dart';
 import 'package:boxgame/type/widgetItem.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +11,7 @@ class ToolBox extends StatelessWidget {
   final List<WidgetItem> widgetList = [
     WidgetItem("calculator"),
     WidgetItem("elf game"),
-    WidgetItem("widget2"),
+    WidgetItem("UI 1"),
     WidgetItem("widget3")
   ];
   @override
@@ -49,7 +51,9 @@ class ToolBox extends StatelessWidget {
           ),
         ),
         floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {},
+          onPressed: () {
+            showDialog(context: context, builder: (_) => const Popup());
+          },
           label: const Text('Like'),
           icon: const Icon(Icons.thumb_up),
           backgroundColor: Colors.pinkAccent,
@@ -92,6 +96,9 @@ class ToolBox extends StatelessWidget {
     } else if (whoami == "elf game") {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => const FlameTest()));
+    } else if (whoami == "UI 1") {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => const UiOne()));
     } else {
       print('You pressed me $whoami');
     }
