@@ -3,6 +3,9 @@
 // found in the LICENSE file.
 
 import 'package:animations/animations.dart';
+import 'package:boxgame/fadeTransition/NAlbumsPage.dart';
+import 'package:boxgame/fadeTransition/NPhotosPage.dart';
+import 'package:boxgame/fadeTransition/NSearchPage.dart';
 import 'package:flutter/material.dart';
 
 class FadeThroughTransitionDemo extends StatefulWidget {
@@ -17,9 +20,9 @@ class _FadeThroughTransitionDemoState extends State<FadeThroughTransitionDemo> {
   int _pageIndex = 0;
 
   final _pageList = <Widget>[
-    _AlbumsPage(),
-    _PhotosPage(),
-    _SearchPage(),
+    const NAlbumsPage(),
+    const NPhotosPage(),
+    const NSearchPage(),
   ];
 
   @override
@@ -76,114 +79,6 @@ class _FadeThroughTransitionDemoState extends State<FadeThroughTransitionDemo> {
           ),
         ],
       ),
-    );
-  }
-}
-
-class _ExampleCard extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-
-    return Expanded(
-      child: Card(
-        child: Stack(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Expanded(
-                  child: Container(
-                    color: Colors.black26,
-                    child: Padding(
-                      padding: const EdgeInsets.all(30),
-                      child: Ink.image(
-                        image: const AssetImage(
-                          'assets/images/ground.png',
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'localizations.demoFadeThroughTextPlaceholder',
-                        style: textTheme.bodyText1,
-                      ),
-                      Text(
-                        'localizations.demoFadeThroughTextPlaceholder',
-                        style: textTheme.caption,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            InkWell(
-              splashColor: Colors.black38,
-              onTap: () {},
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _AlbumsPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ...List.generate(
-          3,
-          (index) => Expanded(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                _ExampleCard(),
-                _ExampleCard(),
-              ],
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class _PhotosPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        _ExampleCard(),
-        _ExampleCard(),
-      ],
-    );
-  }
-}
-
-class _SearchPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (context, index) {
-        return ListTile(
-          leading: Image.asset(
-            'assets/images/star.png',
-            width: 40,
-          ),
-          title:
-              Text('localizations.demoMotionListTileTitle' + ' ${index + 1}'),
-          subtitle: const Text('dfsfs'),
-        );
-      },
-      itemCount: 10,
     );
   }
 }

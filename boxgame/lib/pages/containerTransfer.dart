@@ -218,7 +218,7 @@ class _OpenContainerTransformDemoState extends State {
                 const SizedBox(
                   height: 16,
                 ),
-                ...List.generate(10, (index) {
+                ...List.generate(15, (index) {
                   return OpenContainer<bool>(
                     transitionType: _transitionType,
                     openBuilder: (context, openContainer) =>
