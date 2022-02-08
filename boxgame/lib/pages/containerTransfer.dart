@@ -3,17 +3,17 @@
 // found in the LICENSE file.
 
 import 'package:animations/animations.dart';
-import 'package:boxgame/ui1/NDetailsCard.dart';
-import 'package:boxgame/ui1/NDetailsListTitle.dart';
-import 'package:boxgame/ui1/NDetailsPage.dart';
-import 'package:boxgame/ui1/NOpenContainerWrapper.dart';
-import 'package:boxgame/ui1/NSmallDetailsCard.dart';
+import 'package:boxgame/containerTransfer/NDetailsCard.dart';
+import 'package:boxgame/containerTransfer/NDetailsListTitle.dart';
+import 'package:boxgame/containerTransfer/NDetailsPage.dart';
+import 'package:boxgame/containerTransfer/NOpenContainerWrapper.dart';
+import 'package:boxgame/containerTransfer/NSmallDetailsCard.dart';
 import 'package:flutter/material.dart';
 
 const double _fabDimension = 56;
 
-class UiOne extends StatefulWidget {
-  const UiOne({Key? key}) : super(key: key);
+class ContainerTransferDemo extends StatefulWidget {
+  const ContainerTransferDemo({Key? key}) : super(key: key);
 
   @override
   _OpenContainerTransformDemoState createState() =>

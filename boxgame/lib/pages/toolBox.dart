@@ -1,18 +1,19 @@
 import 'package:boxgame/common/popup.dart';
 import 'package:boxgame/pages/flameTest.dart';
-import 'package:boxgame/pages/uiOne.dart';
+import 'package:boxgame/pages/containerTransfer.dart';
 import 'package:boxgame/type/widgetItem.dart';
 import 'package:flutter/material.dart';
 
 import 'calculator.dart';
+import 'fadeTransition.dart';
 
 class ToolBox extends StatelessWidget {
   ToolBox({Key? key}) : super(key: key);
   final List<WidgetItem> widgetList = [
     WidgetItem("calculator"),
     WidgetItem("elf game"),
-    WidgetItem("UI 1"),
-    WidgetItem("widget3")
+    WidgetItem("container transfer"),
+    WidgetItem("fade transition")
   ];
   @override
   Widget build(BuildContext context) {
@@ -82,7 +83,8 @@ class ToolBox extends StatelessWidget {
               ),
               margin: const EdgeInsets.all(10),
               child: Center(
-                child: Text(widgetList[index].name),
+                child:
+                    Text(widgetList[index].name, textAlign: TextAlign.center),
               ),
             ),
           );
@@ -96,9 +98,16 @@ class ToolBox extends StatelessWidget {
     } else if (whoami == "elf game") {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => const FlameTest()));
-    } else if (whoami == "UI 1") {
+    } else if (whoami == "container transfer") {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const UiOne()));
+          context,
+          MaterialPageRoute(
+              builder: (context) => const ContainerTransferDemo()));
+    } else if (whoami == "fade transition") {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => const FadeThroughTransitionDemo()));
     } else {
       print('You pressed me $whoami');
     }

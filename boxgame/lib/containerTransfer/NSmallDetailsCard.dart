@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:boxgame/ui1/NInkWellOverlay.dart';
+import 'package:boxgame/containerTransfer/NInkWellOverlay.dart';
 import 'package:flutter/material.dart';
 
 class NSmallDetailsCard extends StatelessWidget {
