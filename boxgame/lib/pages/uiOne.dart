@@ -3,38 +3,12 @@
 // found in the LICENSE file.
 
 import 'package:animations/animations.dart';
+import 'package:boxgame/ui1/NDetailsCard.dart';
+import 'package:boxgame/ui1/NDetailsListTitle.dart';
+import 'package:boxgame/ui1/NDetailsPage.dart';
+import 'package:boxgame/ui1/NOpenContainerWrapper.dart';
+import 'package:boxgame/ui1/NSmallDetailsCard.dart';
 import 'package:flutter/material.dart';
-
-const String _loremIpsumParagraph =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod '
-    'tempor incididunt ut labore et dolore magna aliqua. Vulputate dignissim '
-    'suspendisse in est. Ut ornare lectus sit amet. Eget nunc lobortis mattis '
-    'aliquam faucibus purus in. Hendrerit gravida rutrum quisque non tellus '
-    'orci ac auctor. Mattis aliquam faucibus purus in massa. Tellus rutrum '
-    'tellus pellentesque eu tincidunt tortor. Nunc eget lorem dolor sed. Nulla '
-    'at volutpat diam ut venenatis tellus in metus. Tellus cras adipiscing enim '
-    'eu turpis. Pretium fusce id velit ut tortor. Adipiscing enim eu turpis '
-    'egestas pretium. Quis varius quam quisque id. Blandit aliquam etiam erat '
-    'velit scelerisque. In nisl nisi scelerisque eu. Semper risus in hendrerit '
-    'gravida rutrum quisque. Suspendisse in est ante in nibh mauris cursus '
-    'mattis molestie. Adipiscing elit duis tristique sollicitudin nibh sit '
-    'amet commodo nulla. Pretium viverra suspendisse potenti nullam ac tortor '
-    'vitae.\n'
-    '\n'
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod '
-    'tempor incididunt ut labore et dolore magna aliqua. Vulputate dignissim '
-    'suspendisse in est. Ut ornare lectus sit amet. Eget nunc lobortis mattis '
-    'aliquam faucibus purus in. Hendrerit gravida rutrum quisque non tellus '
-    'orci ac auctor. Mattis aliquam faucibus purus in massa. Tellus rutrum '
-    'tellus pellentesque eu tincidunt tortor. Nunc eget lorem dolor sed. Nulla '
-    'at volutpat diam ut venenatis tellus in metus. Tellus cras adipiscing enim '
-    'eu turpis. Pretium fusce id velit ut tortor. Adipiscing enim eu turpis '
-    'egestas pretium. Quis varius quam quisque id. Blandit aliquam etiam erat '
-    'velit scelerisque. In nisl nisi scelerisque eu. Semper risus in hendrerit '
-    'gravida rutrum quisque. Suspendisse in est ante in nibh mauris cursus '
-    'mattis molestie. Adipiscing elit duis tristique sollicitudin nibh sit '
-    'amet commodo nulla. Pretium viverra suspendisse potenti nullam ac tortor '
-    'vitae';
 
 const double _fabDimension = 56;
 
@@ -51,8 +25,6 @@ class _OpenContainerTransformDemoState extends State {
   ContainerTransitionType _transitionType = ContainerTransitionType.fade;
 
   void _showSettingsBottomModalSheet(BuildContext context) {
-    final localizations = "test";
-
     showModalBottomSheet<void>(
       context: context,
       builder: (context) {
@@ -112,7 +84,6 @@ class _OpenContainerTransformDemoState extends State {
 
   @override
   Widget build(BuildContext context) {
-    final localizations = "tw";
     final colorScheme = Theme.of(context).colorScheme;
 
     return Navigator(
@@ -153,17 +124,17 @@ class _OpenContainerTransformDemoState extends State {
             body: ListView(
               padding: const EdgeInsets.all(8),
               children: [
-                _OpenContainerWrapper(
+                NOpenContainerWrapper(
                   transitionType: _transitionType,
                   closedBuilder: (context, openContainer) {
-                    return _DetailsCard(openContainer: openContainer);
+                    return NDetailsCard(openContainer: openContainer);
                   },
                 ),
                 const SizedBox(height: 16),
-                _OpenContainerWrapper(
+                NOpenContainerWrapper(
                   transitionType: _transitionType,
                   closedBuilder: (context, openContainer) {
-                    return _DetailsListTile(openContainer: openContainer);
+                    return NDetailsListTile(openContainer: openContainer);
                   },
                 ),
                 const SizedBox(
@@ -172,10 +143,10 @@ class _OpenContainerTransformDemoState extends State {
                 Row(
                   children: [
                     Expanded(
-                      child: _OpenContainerWrapper(
+                      child: NOpenContainerWrapper(
                         transitionType: _transitionType,
                         closedBuilder: (context, openContainer) {
-                          return _SmallDetailsCard(
+                          return NSmallDetailsCard(
                             openContainer: openContainer,
                             subtitle: "sub_title",
                           );
@@ -186,10 +157,10 @@ class _OpenContainerTransformDemoState extends State {
                       width: 8,
                     ),
                     Expanded(
-                      child: _OpenContainerWrapper(
+                      child: NOpenContainerWrapper(
                         transitionType: _transitionType,
                         closedBuilder: (context, openContainer) {
-                          return _SmallDetailsCard(
+                          return NSmallDetailsCard(
                             openContainer: openContainer,
                             subtitle: "bbb",
                           );
@@ -204,10 +175,10 @@ class _OpenContainerTransformDemoState extends State {
                 Row(
                   children: [
                     Expanded(
-                      child: _OpenContainerWrapper(
+                      child: NOpenContainerWrapper(
                         transitionType: _transitionType,
                         closedBuilder: (context, openContainer) {
-                          return _SmallDetailsCard(
+                          return NSmallDetailsCard(
                             openContainer: openContainer,
                             subtitle: "tiees",
                           );
@@ -218,10 +189,10 @@ class _OpenContainerTransformDemoState extends State {
                       width: 8,
                     ),
                     Expanded(
-                      child: _OpenContainerWrapper(
+                      child: NOpenContainerWrapper(
                         transitionType: _transitionType,
                         closedBuilder: (context, openContainer) {
-                          return _SmallDetailsCard(
+                          return NSmallDetailsCard(
                             openContainer: openContainer,
                             subtitle: "_SmallDetailsCard",
                           );
@@ -232,10 +203,10 @@ class _OpenContainerTransformDemoState extends State {
                       width: 8,
                     ),
                     Expanded(
-                      child: _OpenContainerWrapper(
+                      child: NOpenContainerWrapper(
                         transitionType: _transitionType,
                         closedBuilder: (context, openContainer) {
-                          return _SmallDetailsCard(
+                          return NSmallDetailsCard(
                             openContainer: openContainer,
                             subtitle: "tiees",
                           );
@@ -251,7 +222,7 @@ class _OpenContainerTransformDemoState extends State {
                   return OpenContainer<bool>(
                     transitionType: _transitionType,
                     openBuilder: (context, openContainer) =>
-                        const _DetailsPage(),
+                        const NDetailsPage(),
                     tappable: false,
                     closedShape: const RoundedRectangleBorder(),
                     closedElevation: 0,
@@ -266,7 +237,7 @@ class _OpenContainerTransformDemoState extends State {
                           "aa" + ' ${index + 1}',
                         ),
                         subtitle: const Text(
-                          "subaa",
+                          "subway",
                         ),
                       );
                     },
@@ -276,7 +247,7 @@ class _OpenContainerTransformDemoState extends State {
             ),
             floatingActionButton: OpenContainer(
               transitionType: _transitionType,
-              openBuilder: (context, openContainer) => const _DetailsPage(),
+              openBuilder: (context, openContainer) => const NDetailsPage(),
               closedElevation: 6,
               closedShape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
@@ -300,279 +271,6 @@ class _OpenContainerTransformDemoState extends State {
           ),
         );
       },
-    );
-  }
-}
-
-class _OpenContainerWrapper extends StatelessWidget {
-  const _OpenContainerWrapper({
-    required this.closedBuilder,
-    required this.transitionType,
-  });
-
-  final CloseContainerBuilder closedBuilder;
-  final ContainerTransitionType transitionType;
-
-  @override
-  Widget build(BuildContext context) {
-    return OpenContainer<bool>(
-      transitionType: transitionType,
-      openBuilder: (context, openContainer) => const _DetailsPage(),
-      tappable: false,
-      closedBuilder: closedBuilder,
-    );
-  }
-}
-
-class _DetailsCard extends StatelessWidget {
-  const _DetailsCard({required this.openContainer});
-
-  final VoidCallback openContainer;
-
-  @override
-  Widget build(BuildContext context) {
-    final localizations = "tw";
-
-    return _InkWellOverlay(
-      openContainer: openContainer,
-      height: 300,
-      width: 300,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Expanded(
-            child: Container(
-              color: Colors.black38,
-              child: Center(
-                child: Image.asset(
-                  'assets/images/star.png',
-                  width: 100,
-                ),
-              ),
-            ),
-          ),
-          const ListTile(
-            title: Text(
-              "_DetailsCard",
-            ),
-            subtitle: Text(
-              "_DetailsCard",
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 16,
-              right: 16,
-              bottom: 16,
-            ),
-            child: Text(
-              'Lorem ipsum dolor sit amet, consectetur '
-              'adipiscing elit, sed do eiusmod tempor.',
-              style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                    color: Colors.black54,
-                    inherit: false,
-                  ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _SmallDetailsCard extends StatelessWidget {
-  const _SmallDetailsCard({
-    required this.openContainer,
-    required this.subtitle,
-  });
-
-  final VoidCallback openContainer;
-  final String subtitle;
-
-  @override
-  Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-
-    return _InkWellOverlay(
-      openContainer: openContainer,
-      height: 225,
-      width: 125,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            color: Colors.black38,
-            height: 125,
-            child: Center(
-              child: Image.asset(
-                'assets/images/gear.png',
-                width: 400,
-              ),
-            ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "small",
-                    style: textTheme.headline6,
-                  ),
-                  const SizedBox(
-                    height: 4,
-                  ),
-                  Text(
-                    subtitle,
-                    style: textTheme.caption,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _DetailsListTile extends StatelessWidget {
-  const _DetailsListTile({required this.openContainer});
-
-  final VoidCallback openContainer;
-
-  @override
-  Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    const height = 120.0;
-
-    return _InkWellOverlay(
-      openContainer: openContainer,
-      height: height,
-      width: 120,
-      child: Row(
-        children: [
-          Container(
-            color: Colors.black38,
-            height: height,
-            width: height,
-            child: Center(
-              child: Image.asset(
-                'assets/images/ground.png',
-                width: 60,
-              ),
-            ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "_DetailsListTile",
-                    style: textTheme.subtitle1,
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  Text(
-                    'Lorem ipsum dolor sit amet, consectetur '
-                    'adipiscing elit,',
-                    style: textTheme.caption,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _InkWellOverlay extends StatelessWidget {
-  const _InkWellOverlay({
-    required this.openContainer,
-    required this.width,
-    required this.height,
-    required this.child,
-  });
-
-  final VoidCallback openContainer;
-  final double width;
-  final double height;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: height,
-      width: width,
-      child: InkWell(
-        onTap: openContainer,
-        child: child,
-      ),
-    );
-  }
-}
-
-class _DetailsPage extends StatelessWidget {
-  const _DetailsPage();
-
-  @override
-  Widget build(BuildContext context) {
-    const localizations = "tw";
-    final textTheme = Theme.of(context).textTheme;
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "_DetailsPage",
-        ),
-      ),
-      body: ListView(
-        children: [
-          Container(
-            color: Colors.black38,
-            height: 250,
-            child: Padding(
-              padding: const EdgeInsets.all(70),
-              child: Image.asset(
-                'assets/images/ground.png',
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "xxx",
-                  style: textTheme.headline5?.copyWith(
-                    color: Colors.black54,
-                    fontSize: 30,
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  _loremIpsumParagraph,
-                  style: textTheme.bodyText2?.copyWith(
-                    color: Colors.black54,
-                    height: 1.5,
-                    fontSize: 16,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
